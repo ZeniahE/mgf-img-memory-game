@@ -118,3 +118,29 @@ body {
   cursor: pointer;
   border: none;
 }
+@media screen and (max-width: 600px) {
+  #game-board {
+    max-width: 100%; /* Ensure the board doesn't overflow */
+    padding: 10px; /* Add padding to the game board */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(100px, 1fr)
+    ); /* Automatically fit tiles in columns */
+  }
+  .tile {
+    width: 80px;
+    height: 80px;
+  }
+  #score,
+  #timer {
+    font-size: 16px;
+  }
+  #start-button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+  #restart {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
