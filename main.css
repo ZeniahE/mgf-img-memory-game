@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(6, 100px);
+  grid-gap: 10px;
+  margin-top: 20px;
+  visibility: hidden; /* Hide the game board initially */
+}
+.tile {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3498db;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transform: rotateY(0);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  text-align: center;
+  background-size: cover; /* Ensure the image fills the tile */
+  background-position: center;
+  position: relative; /* To position the pseudo-element correctly */
+}
+
+.tile.hidden {
+  transform: rotateY(
+    180deg
+  ); /* Rotate the tile 180 degrees to hide the image */
+}
+/* Create the "back" of the tile */
+.tile::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3498db; /* Set a default background color */
+  border-radius: 8px;
+  visibility: hidden; /* Initially hide the back side of the tile */
+}
+.tile.hidden::after {
+  visibility: visible; /* Show the back side when tile is hidden */
+}
+/* Remove the background image when the tile is flipped */
+.tile.hidden {
+  background-image: none; /* Remove the background image */
+}
+.tile.blank {
+  background-color: #95a5a6;
+  pointer-events: none;
+}
+.hidden {
+  transform: rotateY(180deg);
+  color: transparent;
+  background-color: #3498db;
+  background-image: none;
+}
+#score {
+  font-size: 20px;
+}
+#timer {
+  font-size: 20px;
+  margin-left: 20px;
+}
+#message {
+  font-size: 24px;
+  font-weight: bold;
+  color: #27ae60;
+  margin-top: 20px;
+}
+#score-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+#start-button {
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+#start-button:hover {
+  background-color: #2980b9;
+}
+#msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#restart {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #27ae60;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
